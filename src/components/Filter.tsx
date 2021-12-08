@@ -1,9 +1,7 @@
 import React from 'react';
 import {
 	Container,
-	Typography,
 	Button,
-	Grid
 } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
 import FilterType from '../types/FilterType';

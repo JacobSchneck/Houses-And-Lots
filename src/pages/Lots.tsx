@@ -1,15 +1,12 @@
 
-import React, { useContext, useEffect, useState } from 'react';
-import { API } from '../API/api';
+import { useContext, useState } from 'react';
 import { Grid } from '@mui/material';
-import Lot from '../types/Lot';
 import LotCard from '../components/LotCard';
 import Filter from '../components/Filter';
 import FilterType from '../types/FilterType'
 import { LotContext } from '../contexts/LotContext';
 
 const Lots = () => {
-	// const [lots, setLots] = useState<Lot[]>([]);
 	const [saved, setSaved] = useState<Set<number>>(new Set());
 	const [filter, setFilter] = useState<FilterType>("DEFAULT");
 

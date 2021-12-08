@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import HomeCard from '../components/HomeCard'
 import { Grid } from '@mui/material';
 import Filter from '../components/Filter';
