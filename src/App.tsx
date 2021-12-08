@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
+import Homes from './pages/Homes';
+import Lots from './pages/Lots';
+import Layout from './components/Layout';
+import { API } from './API/api';
+import { HomePlanProvider } from './contexts/HomePlanContext';
+import { LotProivider } from './contexts/LotContext';
+import { CombinationProivider } from './contexts/CombinationContext';
 
-function App() {
+
+// For easier adaption
+const routes = [
+  {
+    path: "/homes",
+    component: <Homes />
+  }, 
+  {
+    path: "/lots",
+    component: <Lots />,
+  }
+]
+
+const App = () => {
+  // useEffect(() => {
+  //   API.getHomePlans()
+  // })
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Layout>
+        <HomePlanProvider>
+          <LotProivider>
+            <CombinationProivider>
+              <Routes>
+                {routes.map(route => (
+                  <Route path={route.path} element={route.component} />
+                ))}
+              </Routes>
+            </CombinationProivider>
+          </LotProivider>
+        </HomePlanProvider>
+      </Layout>
+    </Router>
+  )
 }
 
 export default App;
