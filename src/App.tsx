@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,7 +6,6 @@ import {
 import Homes from './pages/Homes';
 import Lots from './pages/Lots';
 import Layout from './components/Layout';
-import { API } from './API/api';
 import { HomePlanProvider } from './contexts/HomePlanContext';
 import { LotProivider } from './contexts/LotContext';
 import { CombinationProivider } from './contexts/CombinationContext';
@@ -26,10 +24,6 @@ const routes = [
 ]
 
 const App = () => {
-  // useEffect(() => {
-  //   API.getHomePlans()
-  // })
-  
   return (
     <Router>
       <Layout>
